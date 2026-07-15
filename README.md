@@ -48,7 +48,7 @@ docker compose down
 
 ### How to use utils
 
-Download full messages from rabbit mq queue and return it back
+Download full messages from rabbit mq queue and return them back
 ```
 clear && 2>&1 docker exec -it rabbitmq_not_ui_available_util php /app/src/save_queue_to_xml.php
 ```

@@ -3,6 +3,7 @@ services:
   frankenphp:
     environment:
       SERVER_NAME: 'http://localhost:80'
+      SERVER_ROOT: 'app/'
       PHP_INI_MEMORY_LIMIT: '512M'
       PHP_INI_MAX_EXECUTION_TIME: '10'
       PHP_IDE_CONFIG: 'serverName=rabbitmq_not_ui_available_util'

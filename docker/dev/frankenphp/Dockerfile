@@ -3,16 +3,19 @@ FROM dunglas/frankenphp:1-builder-php8.5-alpine
 WORKDIR /app
 
 RUN install-php-extensions \
-    xdebug
+    xdebug \
+    sockets
 
 RUN rm -f /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 RUN apk update && \
     apk add --no-cache netcat-openbsd
 
-COPY ./composer.lock ./composer.json  ./composer.phar .
+COPY --from=composer:2.8.12 /usr/bin/composer /usr/local/bin/composer
 
-RUN php ./composer.phar install \
+COPY ./composer.json ./composer.lock .
+
+RUN composer install \
     --no-interaction \
     --no-progress \
     --prefer-dist

@@ -18,10 +18,26 @@ cp docker/dev/compose.override.yaml.dist docker/dev/compose.override.yaml
 ```
 cp docker/dev/compose.yaml.dist docker/dev/compose.yaml
 ```
-
-Run application
+> If you need your own networks to access specific rabbit mq host, just add
 ```
-cd docker/dev && docker compose down && docker compose up -d
+# in the frankenphp service section of compose.yaml
+networks:
+    external_rabbit_mq:
+
+# at the end of compose.yaml
+networks:
+    external_rabbit_mq:
+        external: true
+```
+
+If you build this not for the first time, start with the following command at `docker/dev`
+```
+docker compose build --no-cache
+```
+
+Run application, execute at `docker/dev`
+```
+docker compose down && docker compose up -d
 ```
 
 In the end you can stop the application

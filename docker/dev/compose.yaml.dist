@@ -15,7 +15,8 @@ services:
       dockerfile: './docker/dev/frankenphp/Dockerfile'
     working_dir: '/app/'
     volumes:
-      - './../../:/app/'
+      - './../../src/:/app/src/'
+      - './../../dynamic/:/app/dynamic/'
       - './frankenphp/Caddyfile:/etc/frankenphp/Caddyfile:ro'
       - './frankenphp/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini:ro'
     dns:

@@ -1,6 +1,6 @@
 ### For what?
 
-Rabbit mq utils that are not available in Rabbit MQ UI.
+Rabbit mq utils that are not available via Rabbit MQ UI.
 
 
 ### How to run app
@@ -34,5 +34,5 @@ docker compose down
 
 Download full messages from rabbit mq queue and return it back
 ```
-clear && 2>&1 docker exec -it download_queue_xml php /app/src/save_queue_to_xml.php
+clear && 2>&1 docker exec -it rabbitmq_not_ui_available_util php /app/src/save_queue_to_xml.php
 ```

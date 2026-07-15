@@ -1,4 +1,4 @@
-name: download_queue_xml
+name: rabbitmq_not_ui_available_util
 
 x-extra_hosts: &x-extra_hosts
   extra_hosts:
@@ -7,7 +7,7 @@ x-extra_hosts: &x-extra_hosts
 services:
   frankenphp:
     <<: *x-extra_hosts
-    container_name: download_queue_xml
+    container_name: rabbitmq_not_ui_available_util
     restart: 'unless-stopped'
     build:
       # Контекст для Dockerfile и для build секции

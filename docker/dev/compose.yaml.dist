@@ -1,0 +1,23 @@
+name: download_queue_xml
+
+x-extra_hosts: &x-extra_hosts
+  extra_hosts:
+    - "host.docker.internal:host-gateway"
+
+services:
+  frankenphp:
+    <<: *x-extra_hosts
+    container_name: download_queue_xml
+    restart: 'unless-stopped'
+    build:
+      # Контекст для Dockerfile и для build секции
+      context: '../..'
+      dockerfile: './docker/dev/frankenphp/Dockerfile'
+    working_dir: '/app/'
+    volumes:
+      - './../../:/app/'
+      - './frankenphp/Caddyfile:/etc/frankenphp/Caddyfile:ro'
+      - './frankenphp/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini:ro'
+    dns:
+      - 1.1.1.1   # Cloudflare
+      - 8.8.8.8   # Google

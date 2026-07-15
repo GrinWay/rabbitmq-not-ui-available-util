@@ -1,0 +1,24 @@
+###> app ###
+/docker/*/volumes/*
+!/docker/*/volumes/.gitignore
+/messages/*
+!/messages/.gitignore
+/docker/dev/compose.yaml
+/docker/dev/compose.override.yaml
+/.env.local
+/.env.*.local
+/vendor/
+###< app ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
+
+###> phpstan/phpstan ###
+phpstan.neon
+###< phpstan/phpstan ###
+
+###> deptrac/deptrac ###
+/.deptrac.cache
+###< deptrac/deptrac ###
